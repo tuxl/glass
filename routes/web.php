@@ -18,4 +18,5 @@ Route::get('/logout', 'Login@logout');
 Route::middleware(['accessauth'])->group(function () {
     Route::get('/initlogindata', 'Index@initLoginData');
     Route::get('/', 'Index@index');
+    Route::get('/productionlist', 'ProductionController@listProduction');
 });
