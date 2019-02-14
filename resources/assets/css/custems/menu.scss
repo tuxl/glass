@@ -1,0 +1,16 @@
+@include b(submenu) {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  & .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  & .el-submenu__title {
+    height: 45px;
+    line-height: 45px;
+  }
+
+}

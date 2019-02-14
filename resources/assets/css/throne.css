@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box !important;
+}
+a {
+    text-decoration: none;
+}
+
+.rh_block {
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    transition: .2s;
+    background-color: #ffffff;
+    padding:5px 5px;
+    width:100%
+}
+
+.rh_block:hover {
+    box-shadow:0 0 8px 0 rgba(232,237,250,.6),0 2px 4px 0 rgba(232,237,250,.5)
+}
+
+/*临时hack 消除element ui中表单行marging-bottom太高的问题*/
+.rh_form_div>form div{
+    margin-bottom: 0 !important;
+}
+
+.rh_spliter {
+    width: 100%;
+    display: block;
+    height: 1px;
+    border-bottom: 2px solid #E6E9ED;
+}
+
+.rh_operationiconlist{
+    font-size: 18px;
+    cursor: pointer;
+}
+.rh_operationiconlist span:hover i{
+    font-size: 26px;
+}
+
+.rh_query_form .el-input{
+    height: 25px !important;
+    line-height: 25px !important;
+}
+
+.rh_query_form .el-input--small .el-input__icon{
+    line-height: 22px;
+}
+.rh_query_form .el-input > input{
+    padding: 0 3px;
+    height: 25px;
+    line-height: 25px;
+}
+.rh_query_form .el-button{
+    padding: 6px 10px !important;
+}
+.rh_query_form .el-form-item{
+    margin: 0 !important;
+    margin-bottom: 3px !important;
+}
+.rh_query_form .el-form-item__label{
+    height: 25px !important;
+    line-height: 25px !important;
+    margin: 0 !important;
+}
+.rh_query_form .el-form-item__content{
+    height: 25px  !important;
+    line-height: 25px !important;
+    margin: 0 !important;
+}
+
+
+.rh_tag_container {
+
+}
+
+.rh_tag_container .el-tag{
+    margin-bottom: 3px;
+}
+.rh_tag_container .el-tag{
+    margin-left: 5px;
+}
+
+.rh_table_col_hidden{
+    width: 100%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.el-tooltip__popper {
+    max-width: 50%;
+    word-break: break-all;
+}

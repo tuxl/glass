@@ -1,0 +1,33 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f1f2f7;
+}
+
+.block_div {
+  box-sizing: border-box;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  transition: .2s;
+  background-color: #ffffff;
+  padding:5px 5px;
+  width:100%
+}
+
+.rh_operationiconlist{
+  font-size: 18px;
+  cursor: pointer;
+}
+.rh_operationiconlist span:hover i{
+  font-size: 26px;
+}
