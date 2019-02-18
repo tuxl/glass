@@ -71,7 +71,7 @@
             }
         },
         mounted() {
-            axios.get('/initlogindata')
+            axios.get('/admin/initlogindata')
                 .then((response) => {
                     this.$store.commit('user/setInfo', response.data);
                     this.systemready = true;

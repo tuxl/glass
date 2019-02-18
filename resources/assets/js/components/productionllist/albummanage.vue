@@ -57,7 +57,7 @@
                     formData.append("pic", mainpic.files[0]);
                 }
                 this.uploading = true;
-                axios.post('/productionlist/picupload/'+this.row.id, formData, {
+                axios.post('/admin/productionlist/picupload/'+this.row.id, formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data'
                         }

@@ -45,6 +45,15 @@ class ProductionController extends Controller
         $row->save();
     }
 
+    public function editProduction(Request $request, $id){
+        $row = ProductionList::where('id', $id)->first();
+        $name = $request->input('name', '');
+        $auther = $request->input('auther', '');
+        $row->title = $name;
+        $row->auther = $auther;
+        $row->save();
+    }
+
     /*
      * 详情
      * */

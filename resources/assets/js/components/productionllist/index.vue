@@ -157,7 +157,7 @@
                     'pagesize': this.pagination.pageSize,
                     'name':this.query.name,
                 };
-                axios.get('/productionlist',
+                axios.get('/admin/productionlist',
                     {
                         params: params
                     })
@@ -182,7 +182,7 @@
                     type: 'warning'
                 }).then(() => {
                     axios.post(
-                        '/productionlist/delete/'+row.id,
+                        '/admin/productionlist/delete/'+row.id,
                         {},
                         {headers: {'X-Requested-With': 'XMLHttpRequest'},}
                     ).then((response) => {

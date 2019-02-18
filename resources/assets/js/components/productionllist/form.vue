@@ -42,7 +42,13 @@
                 this.$emit('close');
             },
             submitForm() {
-                let url = '/productionlist/add';
+                let url = '';
+                if (this.formtype == 'edit') {
+                    url = '/admin/productionlist/edit/'+this.row.id;
+                } else  {
+                    url = '/admin/productionlist/add';
+                }
+
                 this.uploading = true;
 
                 let formdata = {
@@ -69,7 +75,7 @@
             this.showDialog = true;
             if (this.formtype == 'edit') {
                 this.loading = true;
-                let url = '/productionlist/detail/'+this.row.id;
+                let url = '/admin/productionlist/detail/'+this.row.id;
                 axios.get( url,
                     {
                         headers: {'X-Requested-With': 'XMLHttpRequest'},

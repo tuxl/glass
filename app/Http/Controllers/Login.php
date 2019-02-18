@@ -27,7 +27,7 @@ class Login extends Controller
             'id' => $account->id,
             'login' => 1,
         ]);
-        return redirect('/');
+        return redirect('/admin');
     }
 
     public function logout(Request $request)
