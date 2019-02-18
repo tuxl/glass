@@ -19,4 +19,9 @@ Route::middleware(['accessauth'])->group(function () {
     Route::get('/initlogindata', 'Index@initLoginData');
     Route::get('/', 'Index@index');
     Route::get('/productionlist', 'ProductionController@listProduction');
+    Route::get('/productionlist/detail/{id}', 'ProductionController@productionDetail')->where('id', '[0-9]+');
+    Route::post('/productionlist/add', 'ProductionController@addProduction');
+    Route::post('/productionlist/edit/{id}', 'ProductionController@addProduction')->where('id', '[0-9]+');
+    Route::post('/productionlist/delete/{id}', 'ProductionController@deleteProduction')->where('id', '[0-9]+');
+    Route::post('/productionlist/picupload/{id}', 'ProductionController@picUpload')->where('id', '[0-9]+');
 });

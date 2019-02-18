@@ -32,4 +32,61 @@ class ProductionController extends Controller
             'data' => $data,
         ];
     }
+
+    /*
+     * 添加
+     * */
+    public function addProduction(Request $request){
+        $name = $request->input('name', '');
+        $auther = $request->input('auther', '');
+        $row = new ProductionList();
+        $row->title = $name;
+        $row->auther = $auther;
+        $row->save();
+    }
+
+    /*
+     * 详情
+     * */
+    public function productionDetail(Request $request, $id){
+        $data = ProductionList::where('id', $id)->first();
+        return $data;
+    }
+
+    /*
+     * 删除图片
+     * */
+    public function deleteProduction(Request $request, $id){
+        $data = ProductionList::where('id', $id)->first();
+        if ($data){
+            $data->delete();
+        }
+        return;
+    }
+
+
+    /*
+     * 图片上传
+     *
+     * */
+    public function picUpload(Request $request, $id){
+        $data = ProductionList::where('id', $id)->first();
+        if (!$data){
+            return;
+        }
+        $pic = $request->file('pic',null);
+        $type = $request->input('type', 'thumb');
+        if (!$pic){
+            return response('no pic upload!', 530);
+        }
+        $file = $pic->store('/picupload');
+        if ($type == 'thumb') {
+            $data->thumb_path = $file;
+        } else {
+            $data->mainpic = $file;
+        }
+        $data->save();
+        return;
+
+    }
 }
