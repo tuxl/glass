@@ -14,10 +14,12 @@
 Route::get('/login', 'Login@loginPage');
 Route::post('/loginsubmit', 'Login@loginSbumit');
 Route::get('/logout', 'Login@logout');
+Route::get('/', 'Index@index');
+
 
 Route::prefix('admin')->middleware(['accessauth'])->group(function () {
     Route::get('/initlogindata', 'Index@initLoginData');
-    Route::get('/', 'Index@index');
+    Route::get('/', 'Index@adminIndex');
     Route::get('/productionlist', 'ProductionController@listProduction');
     Route::get('/productionlist/detail/{id}', 'ProductionController@productionDetail')->where('id', '[0-9]+');
     Route::post('/productionlist/add', 'ProductionController@addProduction');
