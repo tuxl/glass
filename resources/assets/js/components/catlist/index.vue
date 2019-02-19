@@ -21,31 +21,12 @@
                     :data="upgradelist"
                     highlight-current-row
                     :border="true">
-                <el-table-column fixed="left" :min-width="180" prop="title" label="名称"></el-table-column>
-                <el-table-column fixed="left" :min-width="180" prop="auther" label="作者"></el-table-column>
-                <el-table-column fixed="left" :min-width="180" prop="catname" label="分类"></el-table-column>
-                <el-table-column fixed="left" :min-width="180" prop="auther" label="缩略图">
-                    <template slot-scope="scope">
-                        <template v-if="scope.row.thumb_path">
-                            <a :href="scope.row.thumb_path" target="_blank" >查看</a>
-                        </template>
-                    </template>
-                </el-table-column>
-                <el-table-column fixed="left" :min-width="180" prop="auther" label="主图">
-                    <template slot-scope="scope">
-                        <template v-if="scope.row.mainpic">
-                            <a :href="scope.row.mainpic" target="_blank" >查看</a>
-                        </template>
-                    </template>
-                </el-table-column>
+                <el-table-column fixed="left" :min-width="180" prop="name" label="名称"></el-table-column>
                 <el-table-column :width="100" fixed="right" label="操作" align="center">
                     <template slot-scope="scope">
                         <div class="rh_operationiconlist">
                             <span>
                                 <i class="el-icon-edit" title="编辑" @click="editdata(scope.row)"></i>
-                            </span>
-                            <span>
-                                <i class="el-icon-tickets"  title="相册" @click="editPic(scope.row)"></i>
                             </span>
                             <span>
                                 <i class="el-icon-delete"  title="删除" @click="deleteProduction(scope.row)"></i>
@@ -74,23 +55,17 @@
                   @close="edit.show = false"
                   @update="fetchData">
         </editform>
-        <picform v-if="picform.show"
-                 :row="picform.data"
-                 @close="picform.show = false"
-                 @update="fetchData"></picform>
     </div>
 </template>
 
 <script>
 
     import editform from './form';
-    import picform from './albummanage';
 
     export default {
         name: "producitionlist",
         components: {
             editform,
-            picform,
         },
         data () {
             return {
@@ -113,10 +88,7 @@
                     name:'',
                     partner:null,
                 },
-                picform:{
-                    show:false,
-                    data:null,
-                }
+
             }
         },
         watch:{
@@ -125,10 +97,7 @@
 
         },
         methods: {
-            editPic:function(row){
-                this.picform.show = true;
-                this.picform.data = row;
-            },
+
             research:function(){
                 this.pagination.currentPage = 0;
                 this.fetchData();
@@ -158,7 +127,7 @@
                     'pagesize': this.pagination.pageSize,
                     'name':this.query.name,
                 };
-                axios.get('/admin/productionlist',
+                axios.get('/admin/categorylist',
                     {
                         params: params
                     })
@@ -178,13 +147,13 @@
                 this.edit.formtype = 'add';
             },
             deleteProduction:function (row) {
-                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                this.$confirm('此操作将永久删除, 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
                     axios.post(
-                        '/admin/productionlist/delete/'+row.id,
+                        '/admin/categorylist/delete/'+row.id,
                         {},
                         {headers: {'X-Requested-With': 'XMLHttpRequest'},}
                     ).then((response) => {
@@ -202,7 +171,7 @@
             }
         },
         mounted(){
-            this.$store.commit('sidebar/setMenu', 'productionlist');
+            this.$store.commit('sidebar/setMenu', 'listcategory');
             this.fetchData();
         }
     }

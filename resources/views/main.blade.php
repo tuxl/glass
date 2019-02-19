@@ -233,9 +233,12 @@
         分类
     </div>
     <ul class="catlist">
-        <li>
-            <a href="#">油墨水彩</a>
-        </li>
+        @foreach ($catlist as $k=>$item)
+            <li>
+                <a href="?cid={{ $item->id }}">{{ $item->name }}</a>
+            </li>
+        @endforeach
+
     </ul>
 </div>
 
