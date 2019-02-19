@@ -17,6 +17,69 @@
 </head>
 <body class="is-preload">
 
+<style>
+    .info{
+        transition: bottom 0.5s;
+        position: absolute;
+        bottom: -45px;
+        color: #ffffff;
+        background: #000;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        padding-left: 20px;
+        font-size: 13px;
+        opacity: 0.8;
+    }
+    .thumb:hover .info{
+        bottom: 0;
+    }
+
+    .navmenu{
+        transition: width 0.5s, height 0.5s;
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        right: 20px;
+        background: #ffffff;
+        top: 60px;
+        overflow: hidden;
+        padding: 10px;
+        border: 1px solid #dcdcdc;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .navmenu:hover{
+        width: 200px;
+        height: 300px;
+    }
+
+    .navmenu:hover .catlist{
+        display: block;
+    }
+
+    .catlist{
+        list-style: none;
+        display: none;
+
+    }
+    .catlist a{
+        color: #000000;
+        text-decoration: none;
+    }
+    .menutitle{
+        font-size: 15px;
+        font-weight: 500;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        /*background: red;*/
+    }
+</style>
+
 <!-- Wrapper -->
 <div id="wrapper">
 
@@ -42,8 +105,7 @@
                    mainpic="{{ $item->mainpic }}">
                     <img src="{{ $item->mainpic }}" alt="" />
                 </a>
-                {{--<h2>{{ $item->title }}</h2>--}}
-                <p>{{ $item->title }}</p>
+                <div class="info">{{ $item->title }}</div>
             </article>
         @endforeach
 
@@ -164,6 +226,17 @@
 
     </div>
 
+</div>
+
+<div class="navmenu">
+    <div class="menutitle">
+        分类
+    </div>
+    <ul class="catlist">
+        <li>
+            <a href="#">油墨水彩</a>
+        </li>
+    </ul>
 </div>
 
 <!-- Scripts -->
