@@ -237,7 +237,7 @@
 			});
 
 		// Poptrox.
-			$main.poptrox({
+			/*$main.poptrox({
 				baseZIndex: 20000,
 				caption: function($a) {
 
@@ -266,16 +266,50 @@
 				usePopupForceClose: true,
 				usePopupLoader: true,
 				usePopupNav: true,
-				windowMargin: 50
-			});
+				windowMargin: 50,
+
+
+			});*/
 
 			// Hack: Set margins to 0 when 'xsmall' activates.
-				breakpoints.on('<=xsmall', function() {
+				/*breakpoints.on('<=xsmall', function() {
 					$main[0]._poptrox.windowMargin = 0;
 				});
 
 				breakpoints.on('>xsmall', function() {
 					$main[0]._poptrox.windowMargin = 50;
-				});
+				});*/
 
 })(jQuery);
+
+function buildSliderList() {
+    var all = $('.image');
+    var data = [];
+    for (var i = 0; i < all.length; i++) {
+        var src = $(all[i]).attr('mainpic');
+        var index = $(all[i]).attr('index');
+        var width = $(all[i]).attr('w');
+        var high = $(all[i]).attr('h');
+        var tmp = {
+            src:src,
+            title:index,
+            w: width,
+            h: high
+        };
+        data.push(tmp);
+    }
+    console.log(data);
+    return data;
+}
+
+function clickReaction(e) {
+    var eTarget = e.target;
+    var index = $(eTarget).attr('index');
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var options = {
+        index: parseInt(index),
+    };
+
+    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, buildSliderList(), options);
+    gallery.init();
+}

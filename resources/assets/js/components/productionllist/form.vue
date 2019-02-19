@@ -11,6 +11,12 @@
             <el-form-item label="作者">
                 <el-input v-model="form.auther" clearable></el-input>
             </el-form-item>
+            <el-form-item label="宽(像素)">
+                <el-input v-model="form.w" clearable></el-input>
+            </el-form-item>
+            <el-form-item label="高(像素)">
+                <el-input v-model="form.h" clearable></el-input>
+            </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
             <el-button @click="showDialog = false">取消</el-button>
@@ -32,6 +38,8 @@
                 form: {
                     name: '',
                     auther: '',
+                    w:0,
+                    h:0,
                 },
                 loading:false,
             }
@@ -54,6 +62,8 @@
                 let formdata = {
                     name:this.form.name,
                     auther:this.form.auther,
+                    w:this.form.w,
+                    h:this.form.h,
                 };
                 axios.post(
                     url,
@@ -84,6 +94,8 @@
                         let data = response.data;
                         this.form.name = data.title;
                         this.form.auther = data.auther;
+                        this.form.w = data.w;
+                        this.form.h= data.h;
                     })
                     .catch((response)=>{
                     })

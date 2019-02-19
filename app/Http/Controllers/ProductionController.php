@@ -39,9 +39,13 @@ class ProductionController extends Controller
     public function addProduction(Request $request){
         $name = $request->input('name', '');
         $auther = $request->input('auther', '');
+        $w = $request->input('w', '');
+        $h = $request->input('h', '');
         $row = new ProductionList();
         $row->title = $name;
         $row->auther = $auther;
+        $row->w = $w;
+        $row->h = $h;
         $row->save();
     }
 
@@ -49,8 +53,12 @@ class ProductionController extends Controller
         $row = ProductionList::where('id', $id)->first();
         $name = $request->input('name', '');
         $auther = $request->input('auther', '');
+        $w = $request->input('w', '');
+        $h = $request->input('h', '');
         $row->title = $name;
         $row->auther = $auther;
+        $row->w = $w;
+        $row->h = $h;
         $row->save();
     }
 
