@@ -15,7 +15,7 @@
                         <span>作品管理</span>
                     </template>
                     <el-menu-item index="productionlist" @click="listproduction">作品列表</el-menu-item>
-                    <el-menu-item index="listcategory" @click="listcategory">作品列表</el-menu-item>
+                    <el-menu-item index="listcategory" @click="listcategory">作品分类</el-menu-item>
                 </el-submenu>
             </el-menu>
         </el-aside>
