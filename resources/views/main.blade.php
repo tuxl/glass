@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Multiverse by HTML5 UP</title>
+    <title>罗克勋个人作品展</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -78,6 +78,13 @@
         text-align: center;
         /*background: red;*/
     }
+    .zsimg {
+        /*display: flex;*/
+        /*justify-content: center;*/
+    }
+    .zsimg > img{
+        max-width: 500px;
+    }
 </style>
 
 <!-- Wrapper -->
@@ -85,10 +92,10 @@
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="index.html"><strong>Multiverse</strong> by HTML5 UP</a></h1>
+        <h1><a href="#">关于作者</a></h1>
         <nav>
             <ul>
-                <li><a href="#footer" class="icon fa-info-circle">About</a></li>
+                <li><a href="#footer" class="icon fa-info-circle">查看</a></li>
             </ul>
         </nav>
     </header>
@@ -116,44 +123,30 @@
         <div class="inner split">
             <div>
                 <section>
-                    <h2>Magna feugiat sed adipiscing</h2>
-                    <p>Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum eget quis orci mattis aliquet. Maecenas fringilla et ante at lorem et ipsum. Dolor nulla eu bibendum sapien. Donec non pharetra dui. Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum.</p>
+                    <h2>罗克勋先生简介</h2>
+                    <p>
+                        罗克勋、湖南长沙人，山水画家，斋号清心居，湖南省美术家协会会员，怀化市国画院首届画家成员，北京凤凰岭书院中国画创作院画家。
+                    </p>
                 </section>
                 <section>
-                    <h2>Follow me on ...</h2>
+                    <h2>生涯介绍</h2>
                     <ul class="icons">
-                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-                        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-                        <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        <li>1991年拜怀化学院易图境先生为师学习花鸟画</li>
+                        <li>2009年在怀化市博物馆举办个人画展</li>
+                        <li>2010年入中国国家画院程大利山水画高研班学习</li>
+                        <li>2012年入北京凤凰岭书院程大利山水画工作室</li>
+                        <li>2014年入北京凤凰岭书院中国画创作院</li>
                     </ul>
                 </section>
-                <p class="copyright">
-                    &copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
-                </p>
+
             </div>
             <div>
                 <section>
-                    <h2>Get in touch</h2>
-                    <form method="post" action="#">
-                        <div class="fields">
-                            <div class="field half">
-                                <input type="text" name="name" id="name" placeholder="Name" />
-                            </div>
-                            <div class="field half">
-                                <input type="text" name="email" id="email" placeholder="Email" />
-                            </div>
-                            <div class="field">
-                                <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
-                            </div>
-                        </div>
-                        <ul class="actions">
-                            <li><input type="submit" value="Send" class="primary" /></li>
-                            <li><input type="reset" value="Reset" /></li>
-                        </ul>
-                    </form>
+                    <h2>个人证书</h2>
+                    <div class="zsimg"><img src="/assets/img/z1.jpg"></div>
+                    <div class="zsimg"><img src="/assets/img/z2.jpg"></div>
+                    <div class="zsimg"><img src="/assets/img/z3.jpg"></div>
+                    <div class="zsimg"><img src="/assets/img/z4.jpg"></div>
                 </section>
             </div>
         </div>
