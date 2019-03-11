@@ -92,7 +92,7 @@
 
     <!-- Header -->
     <header id="header">
-        <h1><a >关于作者</a></h1>
+        <h1><a >作者简介</a></h1>
         <nav>
             <ul>
                 <li><a href="#footer" class="icon fa-info-circle">查看</a></li>
