@@ -298,7 +298,6 @@ function buildSliderList() {
         };
         data.push(tmp);
     }
-    console.log(data);
     return data;
 }
 
@@ -308,6 +307,7 @@ function clickReaction(e) {
     var pswpElement = document.querySelectorAll('.pswp')[0];
     var options = {
         index: parseInt(index),
+        shareEl: false,
     };
 
     gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, buildSliderList(), options);
