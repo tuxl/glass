@@ -15,6 +15,7 @@ Route::get('/login', 'Login@loginPage');
 Route::post('/loginsubmit', 'Login@loginSbumit');
 Route::get('/logout', 'Login@logout');
 Route::get('/', 'Index@index');
+Route::get('/pagedata', 'Index@pageData');
 
 
 Route::prefix('admin')->middleware(['accessauth'])->group(function () {

@@ -245,7 +245,8 @@ function buildSliderList() {
     var data = [];
     for (var i = 0; i < all.length; i++) {
         var src = $(all[i]).attr('mainpic');
-        var index = $(all[i]).attr('index');
+        $(all[i]).attr('index', i);
+        var index = i;
         var width = $(all[i]).attr('w');
         var high = $(all[i]).attr('h');
         var tmp = {
@@ -270,4 +271,81 @@ function clickReaction(e) {
 
     gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, buildSliderList(), options);
     gallery.init();
+}
+
+function getScrollTop()
+{
+    var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+    if(document.body){
+        bodyScrollTop = document.body.scrollTop;
+    }
+    if(document.documentElement){
+        documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+}
+function getScrollHeight(){
+    var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+    if(document.body){
+        bSH = document.body.scrollHeight;
+    }
+    if(document.documentElement){
+        dSH = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bSH - dSH > 0) ? bSH : dSH ;
+    return scrollHeight;
+}
+function getWindowHeight(){
+    var windowHeight = 0;
+    if(document.compatMode == "CSS1Compat"){
+        windowHeight = document.documentElement.clientHeight;
+    }else{
+        windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+}
+window.addEventListener('scroll',winScroll);
+function winScroll(e){
+    var catid = $('meta[name="catid"]').attr('content');
+    var lastid = $('meta[name="lastid"]').attr('content');
+    if(getScrollTop() + getWindowHeight() == getScrollHeight()){
+        $.getJSON("/pagedata?catid="+catid+"&lastid="+lastid, function(data){
+            var piclist = data['data'];
+            var lid = data['lastid'];
+            if (parseInt($('meta[name="lastid"]').attr('content')) < lid) {
+
+                $('meta[name="lastid"]').attr('content', lid);
+                var html = '';
+                for (var i = 0; i < piclist.length; i++) {
+                    var mpic = piclist[i]['mainpic'];
+                    var w = piclist[i]['w'];
+                    var h = piclist[i]['h'];
+                    var thumbpic = piclist[i]['thumb_path'];
+                    var title = piclist[i]['title'];
+                    html += '<article class="thumb">' +
+                        '                <a style="cursor: pointer; background-image: url( ' +
+                        thumbpic +
+                        '); background-size: contain;" class="image" onclick="clickReaction(event)" index="' +
+                        '" w="'
+                        + w +
+                        '" h="'
+                        + h +
+                        '" mainpic="' +
+                        mpic +'"'+
+                        '<img src="' +
+                        thumbpic + '"' +
+                        ' alt="" style="display: none;">' +
+                        '</a>' +
+                        '<div class="info">' +
+                        title +
+                        '</div>' +
+                        '</article>\n'
+                }
+                $('#main').append(html);
+                // console.log(html);
+                buildSliderList();
+            }
+        });
+    }
 }

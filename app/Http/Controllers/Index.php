@@ -26,11 +26,35 @@ class Index extends Controller
         if ($catid){
             $query = $query->where('catid', $catid);
         }
-        $picList = $query->get();
+        $picList = $query->limit(24)->orderby('id', 'asc')->get();
+        $lastid = 0;
+        if (count($picList)>0){
+            $lastid = $picList[count($picList)-1]->id;
+        }
         $catlist = Category::all();
         return view('main',[
             'data' => $picList,
             'catlist' => $catlist,
+            'lastid' => $lastid,
+            'catid' => $catid,
         ]);
+    }
+
+    public function pageData(Request $request){
+        $catid = $request->query('catid', null);
+        $lastid = $request->query('lastid', 0);
+        $query = new ProductionList();
+        if ($catid){
+            $query = $query->where('catid', $catid);
+        }
+        $picList = $query->where('id', '>', $lastid)->limit(24)->orderby('id', 'asc')->get();
+        $lastid = 0;
+        if (count($picList)>0){
+            $lastid = $picList[count($picList)-1]->id;
+        }
+        return [
+            'data' => $picList,
+            'lastid' => $lastid
+        ];
     }
 }

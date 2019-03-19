@@ -9,6 +9,8 @@
     <title>罗克勋个人作品展</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="lastid" content="{{ $lastid  }}" />
+    <meta name="catid" content="{{ $catid  }}" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="photoswipe/photoswipe.css" />
     <link rel="stylesheet" href="photoswipe/photoswipe.css" />
@@ -115,7 +117,6 @@
                 <div class="info">{{ $item->title }}</div>
             </article>
         @endforeach
-
     </div>
 
     <!-- Footer -->
@@ -153,7 +154,6 @@
     </footer>
 
 </div>
-
 
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
