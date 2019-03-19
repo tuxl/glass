@@ -110,7 +110,7 @@
                    w="{{ $item->w }}"
                    h="{{ $item->h}}"
                    mainpic="{{ $item->mainpic }}">
-                    <img src="{{ $item->mainpic }}" alt="" />
+                    <img src="{{ $item->thumb_path }}" alt="" />
                 </a>
                 <div class="info">{{ $item->title }}</div>
             </article>
